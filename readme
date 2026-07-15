@@ -3,7 +3,7 @@ to update:
 on power shell:
 
 git add .
-git commit -m "restore missing /admin route"
+git commit -m "commit message"
 git push
 
 on pythonanywhere bash:

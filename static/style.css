@@ -21,7 +21,6 @@
   -webkit-text-stroke: 0.25px black;
   color: #39FF14;
   background-color: black;
-  color: white; /* text needs to be a light color to stay readable on black */
   padding: 2px 6px;
   border-radius: 3px; /* optional - gives it slightly rounded corners instead of sharp box edges */
 }
