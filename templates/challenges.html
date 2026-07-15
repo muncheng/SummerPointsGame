@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+
+
+<body>
+
+<nav class="navbar">
+
+
+    <a href="/challenges">
+        <button class="button-30" role="button">
+            Challenges
+        </button>
+    </a>
+
+
+    <a href="/leaderboard">
+        <button class="button-30" role="button">
+            Leaderboard
+        </button>
+    </a>
+
+
+
+
+
+</nav>
+
+<h1 class="rainbow-text">Challenges</h1>
+
+
+{% for challenge in challenges %}
+
+
+<div class="card-challenges">
+
+<div class="card-content">
+<h2>
+{{challenge.title}}
+</h2>
+
+
+<p>
+{{challenge.description}}
+</p>
+
+
+<p>
+⭐ {{challenge.points}} points
+</p>
+
+
+{% set info = status_map.get(challenge.title) %}
+
+
+{% if info %}
+
+    <p class="status status-{{info.status}}">
+        Status: {{info.status | capitalize}}
+    </p>
+
+    {% if info.status == "rejected" %}
+
+    <form action="/submit_proof" method="POST" enctype="multipart/form-data">
+
+        <input type="hidden" name="challenge" value="{{challenge.title}}">
+        <input type="hidden" name="points" value="{{challenge.points}}">
+        <input type="hidden" name="username" value="{{username}}">
+        <input type="file" name="photo" accept="image/*">
+
+        <button>
+        Resubmit Proof
+        </button>
+
+    </form>
+
+    {% endif %}
+
+{% else %}
+
+    <form action="/submit_proof" method="POST" enctype="multipart/form-data">
+
+
+    <input type="hidden"
+    name="challenge"
+    value="{{challenge.title}}">
+
+
+    <input type="hidden"
+    name="points"
+    value="{{challenge.points}}">
+
+
+
+    <input
+    type="hidden"
+    name="username"
+    value="{{username}}"
+    >
+
+
+    <input 
+    type="file"
+    name="photo"
+    accept="image/*">
+
+
+    <button class="card-button" role="button">
+    Submit Proof
+    </button>
+
+
+    </form>
+
+{% endif %}
+
+</div>
+</div>
+
+
+{% endfor %}
+
+
+</body>
+</html>

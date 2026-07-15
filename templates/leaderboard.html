@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <a href="/challenges">
+            <button class="button-30" role="button">Challenges</button>
+        </a>
+        <a href="/leaderboard">
+            <button class="button-30" role="button">Leaderboard</button>
+        </a>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="leaderboard-container">
+        
+        <h1 class="rainbow-text">Leaderboard</h1>
+
+        <div class="leaderboard">
+            {% if users|length == 0 %}
+                <p class="empty-state">its either no one is willing to touch grass or no one wanna use my website lmao(pls use it i need to larp into tech)</p>
+            {% else %}
+                {% for user in users %}
+                    <div class="card">
+                        <div class="rank">{{ loop.index }}</div>
+                        <div class="username">{{ user.username }}</div>
+                        <div class="points">{{ user.points }} points</div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+
+</body>
+</html>

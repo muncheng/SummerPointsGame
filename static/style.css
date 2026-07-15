@@ -1,0 +1,375 @@
+/* Base Page Configuration */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.rainbow-text {
+  font-family: "Comic Sans MS", "Comic Sans", cursive, sans-serif;
+  margin: 20px;
+  background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);   
+  -webkit-text-stroke: 2px black;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.subtitle-text {
+  font-family: "Comic Sans MS", "Comic Sans", cursive, sans-serif;
+  margin: 20px; 
+  -webkit-text-stroke: 1px black;
+  color: #39FF14;
+}
+
+
+body {
+    background-color: #f4f7f6;
+    color: #212529;
+    padding-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the main layout column on the viewport */
+    min-height: 100vh;
+    
+    /* FIX SIDEWAYS SCROLL: Replaced 100vw with 100% to stop scrollbar push */
+    width: 100%; 
+    overflow-x: hidden;
+}
+
+/* FIX BACKGROUND NOT APPEARING: This isolated layer renders perfectly on mobile */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Pushes the tile mosaic safely behind your text/cards */
+    
+    background-image: url('lmaoRodrick.jpg'); 
+    background-repeat: repeat;
+    
+    /* Control tile sizing cleanly here (e.g. 100px wide, height scales automatically) */
+    background-size: 100px auto; 
+}
+
+/* Navbar Layout */
+.navbar {
+    background-color: #ffffff;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: center; /* Centers the navigation buttons horizontally */
+    gap: 15px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 40px;
+    width: 100%; /* Ensures full width navbar while content stays centered */
+}
+
+/* Button-30 Base Styling */
+.button-30 {
+    background-color: #ffffff;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    color: #212529;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 20px;
+    text-align: center;
+    transition: all 0.2s;
+}
+
+.button-30:hover {
+    background-color: #f8f9fa;
+    border-color: #764ba2;
+    color: #764ba2;
+}
+
+/* Page Typography */
+h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 2rem;
+    color: #343a40;
+    width: 100%;
+}
+
+/* Center Column Wrapper */
+.leaderboard-container {
+    width: 100%;
+    max-width: 500px;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers everything structurally within this section */
+}
+
+/* Leaderboard Content Box */
+.leaderboard {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    padding: 10px 0;
+    overflow: hidden;
+    width: 100%; /* Spans exactly to the bounds of the container */
+}
+
+/* Individual User Card (Perfectly Centered Row Alignment) */
+.card {
+    display: flex;
+    align-items: center; /* Centers elements vertically within the row */
+    justify-content: space-between; /* Evenly distributes rank, name, and points */
+    padding: 16px 24px;
+    border-bottom: 1px solid #f1f3f5;
+    transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.card:last-child {
+    border-bottom: none;
+}
+
+.card:hover {
+    background-color: #fdfdfd;
+    transform: scale(1.01);
+}
+
+/* Rank Circle Badge */
+.rank {
+    font-weight: 700;
+    font-size: 15px;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-right: 18px; /* Balanced spacing pushing rightward to the text */
+    background-color: #e9ecef;
+    color: #495057;
+    flex-shrink: 0;
+}
+
+/* Top 3 Podium Highlights */
+.card:nth-child(1) .rank {
+    background-color: #ffe066; /* Gold */
+    color: #925102;
+}
+
+.card:nth-child(2) .rank {
+    background-color: #e9ecef; /* Silver */
+    color: #495057;
+}
+
+.card:nth-child(3) .rank {
+    background-color: #ffd8a8; /* Bronze */
+    color: #c15c00;
+}
+
+/* Username Alignment */
+.username {
+    flex-grow: 1;
+    font-weight: 600;
+    font-size: 16px;
+    color: #343a40;
+    text-align: left; /* Ensures username alignment stays clean next to rank */
+    padding-right: 15px; /* Keeps breathing room before the point values */
+}
+
+/* Points Pills */
+.points {
+    font-weight: 700;
+    color: #764ba2;
+    font-size: 14px;
+    background-color: #f3f0ff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    white-space: nowrap;
+    margin-left: auto; /* Explicit snap to the right edge of the card boundary */
+}
+
+/* Empty State Handling */
+.empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: #868e96;
+    font-size: 15px;
+    width: 100%;
+}
+/* CSS */
+.button-59 {
+  align-items: center;
+  background-color: #fff;
+  border: 2px solid #000;
+  box-sizing: border-box;
+  color: #000;
+  cursor: pointer;
+  display: inline-flex;
+  fill: #000;
+  font-family: Inter,sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  height: 48px;
+  justify-content: center;
+  letter-spacing: -.8px;
+  line-height: 24px;
+  min-width: 140px;
+  outline: 0;
+  padding: 0 17px;
+  text-align: center;
+  text-decoration: none;
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-59:focus {
+  color: #171e29;
+}
+
+.button-59:hover {
+  border-color: #06f;
+  color: #06f;
+  fill: #06f;
+}
+
+.button-59:active {
+  border-color: #06f;
+  color: #06f;
+  fill: #06f;
+}
+
+@media (min-width: 768px) {
+  .button-59 {
+    min-width: 170px;
+  }
+}
+
+/* CSS */
+.button-30 {
+  align-items: center;
+  appearance: none;
+  background-color: #FCFCFD;
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #36395A;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono",monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 18px;
+}
+
+.button-30:focus {
+  box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+.button-30:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.button-30:active {
+  box-shadow: #D6D6E7 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+
+/* The Card container */
+.card-challenges {
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 90%; /* Adapts to mobile screen width */
+  max-width: 360px; /* Caps the size on larger screens */
+  margin: 20px
+}
+
+/* Card Image */
+.card-challenges img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Text Content Container */
+.card-content {
+  padding: 20px;
+}
+
+.card-challenges h2 {
+  margin: 0 0 10px 0;
+  font-size: 1.4rem;
+  color: #333;
+}
+
+.card-challenges p {
+  margin: 0 0 15px 0;
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* Call to Action Button */
+.card-challenges button {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.card-challenges button:hover {
+  background-color: #0056b3;
+}
+/* Centers the main container box horizontally on the webpage */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;      /* Centers inner elements horizontally */
+    justify-content: center;   /* Centers inner elements vertically (if container has height) */
+    text-align: center;        /* Ensures text and inline elements stay centered */
+    width: 100%;
+    max-width: 500px;          /* Prevents the form from becoming too wide on desktop screens */
+    margin: 0 auto;            /* Standard fallback strategy to force horizontal centering */
+    padding: 0 20px;           /* Gives breathing room on narrow mobile viewports */
+}
+
+/* Optional: Ensures the form components stack nicely and align cleanly */
+.container form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;                 /* Adds spacing between the text input and submit button */
+    width: 100%;
+}
+
+.container input {
+    width: 100%;               /* Makes input fill up to the max-width rules smoothly */
+    max-width: 300px;          
+    padding: 10px;
+}

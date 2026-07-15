@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Admin Panel</title>
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+
+<body>
+
+
+<main class="container">
+
+
+<h1>Super duper secret hacker lair special entry mun cheng only</h1>
+
+
+
+{% if submissions|length == 0 %}
+
+<p>
+No pending submissions yipee🎉
+</p>
+
+
+{% else %}
+
+
+
+{% for submission in submissions %}
+
+
+
+<div class="proof-card">
+
+
+<h2>
+{{ submission.username }}
+</h2>
+
+
+
+<p>
+Challenge:
+{{ submission.challenge }}
+</p>
+
+
+
+<p>
+Points:
+⭐ {{ submission.points }}
+</p>
+
+
+
+<p>
+Status:
+{{ submission.status }}
+</p>
+
+
+
+<img
+src="/uploads/{{ submission.photo }}"
+alt="Proof photo"
+width="250"
+>
+
+
+
+<div class="admin-buttons">
+
+
+<a href="/approve/{{ submission.id }}">
+
+<button>
+Approve ✅
+</button>
+
+</a>
+
+
+
+<a href="/reject/{{ submission.id }}">
+
+<button>
+Reject ❌
+</button>
+
+</a>
+
+
+
+</div>
+
+
+
+</div>
+
+
+
+{% endfor %}
+
+
+
+{% endif %}
+
+
+
+</main>
+
+
+</body>
+
+</html>
