@@ -16,7 +16,7 @@ DB_PATH = os.path.join(BASE_DIR, "database.db")
 
 
 UPLOAD_FOLDER = os.path.join(BASE_DIR, "uploads")
-
+ADMIN_PASSCODE = "062411"
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 
 
@@ -156,25 +156,33 @@ def main():
 
 
 
-@app.route("/admin")
-def admin():
+@app.route("/admin_login", methods=["GET", "POST"])
+def admin_login():
 
-    db = database()
+    if request.method == "POST":
 
-    submissions = db.execute(
+        passcode = request.form.get("passcode")
+
+        if passcode == ADMIN_PASSCODE:
+            session["is_admin"] = True
+            return redirect("/admin")
+
+        return """
+        <script>
+        alert("Wrong passcode ❌");
+        window.location="/admin_login";
+        </script>
         """
-        SELECT *
-        FROM submissions
-        WHERE status='pending'
-        """
-    ).fetchall()
+
+    return render_template("admin_login.html")
 
 
-    return render_template(
-        "admin.html",
-        submissions=submissions
-    )
+@app.route("/admin_logout")
+def admin_logout():
 
+    session.pop("is_admin", None)
+
+    return redirect("/")
 
 @app.route("/submit_name", methods=["POST"])
 def submit_name():

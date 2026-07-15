@@ -7,18 +7,18 @@
 }
 
 .rainbow-text {
-  font-family: "Comic Sans MS", "Comic Sans", cursive, sans-serif;
+  font-family: "Comic Sans MS", "Comic Sans";
   margin: 20px;
   background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);   
-  -webkit-text-stroke: 2px black;
+  -webkit-text-stroke: 0.5px black;
   -webkit-background-clip: text;
   color: transparent;
 }
 
 .subtitle-text {
-  font-family: "Comic Sans MS", "Comic Sans", cursive, sans-serif;
+  font-family: "Comic Sans MS", "Comic Sans";
   margin: 20px; 
-  -webkit-text-stroke: 1px black;
+  -webkit-text-stroke: 0.25px black;
   color: #39FF14;
 }
 
@@ -98,7 +98,7 @@ h1 {
 /* Center Column Wrapper */
 .leaderboard-container {
     width: 100%;
-    max-width: 500px;
+    max-width: 700px;
     padding: 0 20px;
     display: flex;
     flex-direction: column;
@@ -300,7 +300,7 @@ h1 {
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 90%; /* Adapts to mobile screen width */
-  max-width: 360px; /* Caps the size on larger screens */
+  max-width: 700px; /* Caps the size on larger screens */
   margin: 20px
 }
 
@@ -354,7 +354,7 @@ h1 {
     justify-content: center;   /* Centers inner elements vertically (if container has height) */
     text-align: center;        /* Ensures text and inline elements stay centered */
     width: 100%;
-    max-width: 500px;          /* Prevents the form from becoming too wide on desktop screens */
+    max-width: 900px;          /* Prevents the form from becoming too wide on desktop screens */
     margin: 0 auto;            /* Standard fallback strategy to force horizontal centering */
     padding: 0 20px;           /* Gives breathing room on narrow mobile viewports */
 }
