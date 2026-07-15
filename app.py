@@ -184,6 +184,30 @@ def admin_logout():
 
     return redirect("/")
 
+@app.route("/admin")
+def admin():
+
+    if not session.get("is_admin"):
+        return redirect("/admin_login")
+
+
+    db = database()
+
+    submissions = db.execute(
+        """
+        SELECT *
+        FROM submissions
+        WHERE status='pending'
+        """
+    ).fetchall()
+
+
+    return render_template(
+        "admin.html",
+        submissions=submissions
+    )
+
+
 @app.route("/submit_name", methods=["POST"])
 def submit_name():
 
