@@ -20,13 +20,11 @@
   margin: 20px; 
   -webkit-text-stroke: 0.25px black;
   color: #39FF14;
-  background: none repeat scroll 0 0 #1B1615;
-  display: inline;
-  font-size: 15px;
-  line-height: 24px;
-  padding-left: 5px;
+  background-color: black;
+  color: white; /* text needs to be a light color to stay readable on black */
+  padding: 2px 6px;
+  border-radius: 3px; /* optional - gives it slightly rounded corners instead of sharp box edges */
 }
-
 
 body {
     background-color: #f4f7f6;

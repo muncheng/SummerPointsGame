@@ -1,0 +1,39 @@
+to update:
+
+on power shell:
+
+git add .
+git commit -m "restore missing /admin route"
+git push
+
+on pythonanywhere bash:
+cd SummerPointsGame
+git pull
+
+
+to update challenges: run the update_challenges script
+
+wipe db in bash:
+cp database.db database.db.backup
+rm database.db
+
+discard local edits to overwrite to prevent merge failure/abortion:
+git checkout -- app.py
+
+
+replace the db to overwrite:
+cp database.db database.db.backup
+mv database.db database.db.livebackup
+rm database.db
+mv database.db.livebackup database.db
+
+
+Stop tracking uploads + db:
+in bash:
+cd C:\Users\munch\OneDrive\Desktop\SummerApp
+git rm --cached database.db
+
+in powershell:
+git add .gitignore
+git commit -m "stop tracking database.db and uploads"
+git push
