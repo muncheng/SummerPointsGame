@@ -85,6 +85,8 @@ existing = conn.execute(
 ).fetchall()
 
 
+#VERY IMPORTANT: NO COMMA AT THE END OF THE LIST!!!
+
 if len(existing) == 0:
 
     conn.execute("""
@@ -132,7 +134,7 @@ if len(existing) == 0:
         ("get a neon orange mowhawk", "if yall caught the ref gj", 50),
         ("commit arson", "just to clarify im not endorsing violence, sue me", 100),
         ("Replace zak brown at mcl","respect", 670),
-        ("Start the french revolution", "yeah Im not approving none of these submissions", 670),
+        ("Start the french revolution", "yeah Im not approving none of these submissions", 670)
     """)
 
 conn.commit()
